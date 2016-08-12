@@ -22,11 +22,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="overallProj" />
         <module name="radulenkoProj" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="G18Project" target="1.5" />
+      <module name="overallProj" target="1.5" />
       <module name="radulenkoProj" target="1.5" />
     </bytecodeTargetLevel>
   </component>
