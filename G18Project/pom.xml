@@ -17,5 +17,6 @@
   </dependencies>
   <modules>
     <module>radulenkoProj</module>
+    <module>overallProj</module>
   </modules>
 </project>
