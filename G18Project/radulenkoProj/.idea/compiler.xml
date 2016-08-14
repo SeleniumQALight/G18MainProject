@@ -22,32 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="BerezukProj" />
-        <module name="FedorovProj" />
-        <module name="Gon4arenkoProj" />
-        <module name="GuseinovProj" />
-        <module name="HivrichProj" />
-        <module name="KorchaginaProj" />
-        <module name="MarchenkoProj" />
-        <module name="overallProj" />
         <module name="radulenkoProj" />
-        <module name="SedkoProj" />
-        <module name="ToporikovProj" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="BerezukProj" target="1.5" />
-      <module name="FedorovProj" target="1.5" />
-      <module name="G18Project" target="1.5" />
-      <module name="Gon4arenkoProj" target="1.5" />
-      <module name="GuseinovProj" target="1.5" />
-      <module name="HivrichProj" target="1.5" />
-      <module name="KorchaginaProj" target="1.5" />
-      <module name="MarchenkoProj" target="1.5" />
-      <module name="overallProj" target="1.5" />
       <module name="radulenkoProj" target="1.5" />
-      <module name="SedkoProj" target="1.5" />
-      <module name="ToporikovProj" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
