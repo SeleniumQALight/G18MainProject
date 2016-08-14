@@ -23,5 +23,9 @@
     <module>GuseinovProj</module>
     <module>KorchaginaProj</module>
     <module>MarchenkoProj</module>
+    <module>SedkoProj</module>
+    <module>ToporikovProj</module>
+    <module>FedorovProj</module>
+    <module>HivrichProj</module>
   </modules>
 </project>
