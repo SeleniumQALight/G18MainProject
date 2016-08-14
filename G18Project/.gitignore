@@ -9,6 +9,14 @@
 /target/generated-sources/
 /target/generated-test-sources/
 
+.idea
+.idea/
+*.iml
+*/workspace.xml
+target
+*/target/
+
+
 /radulenkoProj/.idea
 /radulenkoProj/.idea/
 /radulenkoProj/radulenkoProj.iml
@@ -20,4 +28,14 @@
 /KorchaginaProj/KorchaginaProj.iml
 /KorchaginaProj/target
 /KorchaginaProj/target/
+
+BerezukProj/target/
+FedorovProj/target/
+Gon4arenkoProj/target/
+GuseinovProj/target/
+HivrichProj/target/
+MarchenkoProj/target/
+SedkoProj/target/
+ToporikovProj/target/
+overallProj/target/
 
