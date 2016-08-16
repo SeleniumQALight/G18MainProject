@@ -17,7 +17,8 @@
 */workspace.xml
 target
 */target/
-
+*.java
+MarchenkoProj.iml
 
 /radulenkoProj/.idea
 /radulenkoProj/.idea/
@@ -41,3 +42,4 @@ SedkoProj/target/
 ToporikovProj/target/
 overallProj/target/
 
+.gitignore
