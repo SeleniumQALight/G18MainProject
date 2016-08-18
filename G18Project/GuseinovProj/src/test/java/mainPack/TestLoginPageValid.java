@@ -31,7 +31,8 @@ public class TestLoginPageValid {
         System.out.println("Button 'Вход' clicked");
         Assert.assertTrue("Test Failed",driver.findElement(By.xpath(".//span[@class='hidden-xs']")).isDisplayed());
         driver.quit();
-        System.out.println("Driver was closed");
+        //System.out.println("Driver was closed");
+
     }
 
 }
