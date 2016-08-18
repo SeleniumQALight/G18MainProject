@@ -18,12 +18,13 @@ public class TestLoginPageValid {
 
     @Test
     public void testLoginPageValid(){
-        //open window and
+//PRECONDITIONS
+         // open window and
         driver.manage().window().maximize();
         //timeout 10 seconds - default seconds will try during 10 sec
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         System.out.println("Driver was opened and maximised");
-
+//STEP 1
        //navigate to
         driver.get("http://v3.test.itpmgroup.com/login");
 
@@ -31,9 +32,19 @@ public class TestLoginPageValid {
         System.out.println("Url was opened");
 
         //assert - check smth -> make test pass or fail
-        Assert.assertTrue("Assert works", driver.findElement(By.id("password-")).isDisplayed());
+        Assert.assertTrue("Assert works", driver.findElement(By.id("password")).isDisplayed());
+        System.out.println("You navigate to Login Page");
+//STEP2
+        //enter login
 
-        //close
+        //enter password
+// STEP3
+        //click on button
+        //verify result
+
+
+//POST-CONDITIONS
+// close
         driver.quit();
         System.out.println("Driver was closed");
 
