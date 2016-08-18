@@ -24,9 +24,13 @@ public class TestLoginPageValid {
         System.out.println("Url Was Opened");
         Assert.assertTrue("Assert works",driver.findElement(By.id("password")).isDisplayed());
         driver.findElement(By.name("_username")).sendKeys("student");
+        System.out.println("Email field ready");
         driver.findElement(By.name("_password")).sendKeys("909090");
+        System.out.println("Password field ready");
         driver.findElement(By.xpath(".//button[@type='submit']")).click();
-        //driver.quit();
+        System.out.println("Button 'Вход' clicked");
+        Assert.assertTrue("Test Failed",driver.findElement(By.xpath(".//span[@class='hidden-xs']")).isDisplayed());
+        driver.quit();
         System.out.println("Driver was closed");
     }
 
