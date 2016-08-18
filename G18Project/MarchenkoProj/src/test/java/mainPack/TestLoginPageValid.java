@@ -1,10 +1,13 @@
 package mainPack;
 
 //import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
@@ -13,13 +16,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class TestLoginPageValid {
     //new variable with driver
-    WebDriver driver = new ChromeDriver();
+   WebDriver driver = new ChromeDriver();
    // Logger log = Logger.getLogger(getClass());
-
     @Test
     public void testLoginPageValid(){
 //PRECONDITIONS
-         // open window and
+         // open window
         driver.manage().window().maximize();
         //timeout 10 seconds - default seconds will try during 10 sec
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -36,13 +38,16 @@ public class TestLoginPageValid {
         System.out.println("You navigate to Login Page");
 //STEP2
         //enter login
-
+        driver.findElement(By.name("_username")).sendKeys("student");
         //enter password
-// STEP3
+        driver.findElement(By.id("password")).sendKeys("909090");
+//STEP3
         //click on button
+        driver.findElement(By.xpath(".//button[@type = 'submit']")).click();
+
         //verify result
-
-
+        Assert.assertTrue(By.xpath(".//img[contains(@alt,'student ')]").findElement(driver).isDisplayed());
+        System.out.println("Login is successful");
 //POST-CONDITIONS
 // close
         driver.quit();
