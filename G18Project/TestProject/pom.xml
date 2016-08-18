@@ -7,28 +7,17 @@
     <artifactId>G18Project</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>GuseinovProj</groupId>
-  <artifactId>GuseinovProj</artifactId>
+  <groupId>TestProject</groupId>
+  <artifactId>TestProject</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>GuseinovProj</name>
+  <name>TestProject</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>3.8.1</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>2.53.1</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/log4j/log4j -->
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
     </dependency>
   </dependencies>
 </project>
