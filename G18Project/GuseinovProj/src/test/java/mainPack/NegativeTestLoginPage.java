@@ -1,5 +1,6 @@
 package mainPack;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,7 @@ public class NegativeTestLoginPage {
 
     @Test
 
-    public void NegativeTestLoginPage(){
+    public void negativeTestLoginPage(){
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         System.out.println("Window opened and maximized");
@@ -21,7 +22,7 @@ public class NegativeTestLoginPage {
         System.out.println("Url is opened");
         driver.findElement(By.xpath(".//button[@type='submit']")).click();
         System.out.println("Button 'Вход' clicked");
-        driver.findElement(By.xpath("//p[@class='login-box-msg']"));
+        Assert.assertTrue(driver.findElement(By.xpath("//p[@class='login-box-msg']")).isDisplayed());
         System.out.println("We are on login page");
         driver.quit();
         System.out.println("Driver closed");
