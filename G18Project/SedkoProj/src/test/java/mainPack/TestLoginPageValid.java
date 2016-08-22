@@ -22,8 +22,11 @@ public class TestLoginPageValid {
         driver.get("http://v3.test.itpmgroup.com/login");
         log.info("URL was opened");
         driver.findElement(By.name("_username")).sendKeys("student");
+        log.info("Login was entered");
         driver.findElement(By.id("password")).sendKeys("909090");
+        log.info("Password was entered");
         driver.findElement(By.xpath(".//button[@type='submit']")).click();
+        log.info("Button was pressed");
         //Assert.assertTrue();
         //Assert.assertTrue("Assert works",driver.findElement(By.id("password1")).isDisplayed());
         driver.quit();
