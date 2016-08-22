@@ -10,6 +10,8 @@ target/generated-test-sources/
 target/test-classes
 target/site
 
+*.log
+
 
 radulenkoProj.iml
 radulenkoProj.ipr
