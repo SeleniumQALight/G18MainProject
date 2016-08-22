@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -19,19 +20,31 @@ public class TestLoginPageValid {
     public void testLoginPageValid(){
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        System.out.println("Driver was opened and maximized");
+        log.info("Driver was opened and maximized");
         driver.get("http://v3.test.itpmgroup.com/login");
-        System.out.println("Url Was Opened");
-        Assert.assertTrue("Assert works",driver.findElement(By.id("password")).isDisplayed());
+        log.info("Url Was Opened");
+        boolean isDispl;
+        try{
+            isDispl = driver.findElement(By.id("password")).isDisplayed();
+        }catch(NoSuchElementException e){
+            isDispl = false;
+        }
+        Assert.assertTrue("Element was not found on the page!",isDispl);
         driver.findElement(By.name("_username")).sendKeys("student");
-        System.out.println("Email field ready");
+        log.info("Email field filled");
         driver.findElement(By.name("_password")).sendKeys("909090");
-        System.out.println("Password field ready");
+        log.info("Password field filled");
         driver.findElement(By.xpath(".//button[@type='submit']")).click();
-        System.out.println("Button 'Вход' clicked");
-        Assert.assertTrue("Test Failed",driver.findElement(By.xpath(".//span[@class='hidden-xs']")).isDisplayed());
+        log.info("Button 'Вход' clicked");
+        boolean isDispl1;
+        try{
+             isDispl1 = driver.findElement(By.xpath(".//span[@class='hidden-xs']")).isDisplayed();
+        }catch(NoSuchElementException e){
+            isDispl1 = false;
+        }
+        Assert.assertTrue("Element was not found on the page!",isDispl1);
         driver.quit();
-        //System.out.println("Driver was closed");
+        log.info("Driver was closed");
 
     }
 
