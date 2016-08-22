@@ -44,7 +44,7 @@ public class TestLoginPageValid {
         driver.findElement(By.xpath(".//button[@type = 'submit']")).click();
 
         //verify result
-        Assert.assertTrue(By.xpath(".//img[contains(@alt,'student ')]").findElement(driver).isDisplayed());
+        Assert.assertTrue(By.xpath(".//img[contains(@alt,'student')]").findElement(driver).isDisplayed());
         System.out.println("Login is successful");
 //POST-CONDITIONS
 // close
