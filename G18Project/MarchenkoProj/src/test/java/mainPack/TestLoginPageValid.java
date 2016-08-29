@@ -5,8 +5,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -32,6 +32,15 @@ public class TestLoginPageValid {
         System.out.println("Url was opened");
 
         //assert - check smth -> make test pass or fail
+
+
+        boolean passwordPresent;
+        try{
+            passwordPresent = driver.findElement(By.id("password")).isDisplayed();
+                    } catch (Exception e){
+            passwordPresent = false;
+        }
+
         Assert.assertTrue("Assert works", driver.findElement(By.id("password")).isDisplayed());
         System.out.println("You navigate to Login Page");
 //STEP2
