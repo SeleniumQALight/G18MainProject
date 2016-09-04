@@ -1,10 +1,7 @@
 package mainPack;
 
 
-import mainPack.Pages.ApparatEditPage;
-import mainPack.Pages.ApparatPage;
-import mainPack.Pages.DealPage;
-import mainPack.Pages.LoginPage;
+import mainPack.Pages.*;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,15 +9,10 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-/**
- * Created by HomeUser on 8/27/2016.
- */
+
 public class TestVhodVSlovari {
     WebDriver driver = new ChromeDriver();
-    LoginPage loginPage = new LoginPage(driver);
-    DealPage dealPage = new DealPage(driver);
-    ApparatPage apparatPage = new ApparatPage(driver);
-    ApparatEditPage apparatEditPage = new ApparatEditPage(driver);
+    App1 app1 = new App1(driver);
 
 
     @Before
@@ -32,33 +24,30 @@ public class TestVhodVSlovari {
     @Test
     public void testVhodVSlovari() {
 
-        loginPage.openBrowserAndLoginPage();
-        Assert.assertTrue("LoginPage was not loaded", loginPage.isLoginPageLoad());
+        app1.loginPage.openBrowserAndLoginPage();
+        Assert.assertTrue("LoginPage was not loaded", app1.loginPage.isLoginPageLoad());
 
-        loginPage.inputTextIntoLoginField("Student").inputTextIntoPassField("909090").clickButtonVhod();
-        Assert.assertTrue("Deal Page was not load", dealPage.isLogOn());
+        app1.loginPage.inputTextIntoLoginField("Student").inputTextIntoPassField("909090").clickButtonVhod();
+        Assert.assertTrue("Deal Page was not load", app1.dealPage.isLogOn());
 
-        dealPage.findDictionary();
-        Assert.assertTrue("Dictionary was not found", dealPage.findDictionary());
+        app1.dealPage.findDictionary();
+        Assert.assertTrue("Dictionary was not found", app1.dealPage.findDictionary());
 
-        dealPage.clickOnDictionary();
-        dealPage.clickOnSubMenuDictionaryAparat();
-        apparatPage.clickOnAddApparat();
-        apparatEditPage.inputTextIntoApparatNumber("22");
-        apparatEditPage.inputTextIntoApparatComment("ApparatAutoTest");
-        apparatEditPage.clickOnButtonCreate();
+        app1.dealPage.clickOnDictionary();
+        app1.dealPage.clickOnSubMenuDictionaryAparat();
+        app1.apparatPage.clickOnAddApparat();
+        app1.apparatEditPage.inputTextIntoApparatNumber("22");
+        app1.apparatEditPage.inputTextIntoApparatComment("ApparatAutoTest");
+        app1.apparatEditPage.clickOnButtonCreate();
         Assert.assertTrue("Apparat with comment " + "'" + "ApparatAutoTest" + "'" + " was not added",
-                apparatPage.isApparatWithCommentPresent("ApparatAutoTest"));
-
-
-        
+                app1.apparatPage.isApparatWithCommentPresent("ApparatAutoTest"));
 
 
     }
 
     @After
     public void tearDown() {
-        dealPage.closeDealPageAndBrowser();
+        app1.dealPage.closeDealPageAndBrowser();
     }
 
 
