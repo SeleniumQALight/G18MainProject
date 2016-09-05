@@ -1,101 +1,85 @@
 package mainPack.Pages;
 
-
 import org.apache.log4j.Logger;
-
-import org.openqa.selenium.By;
+import org.junit.Assert;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Created by Iris on 22.08.2016.
+ */
 public class LoginPage {
     WebDriver driver;
     Logger log;
 
-    @FindBy(name = "_username")
-    WebElement inputLogin;
-
+    ///all elements for PageFactory
     @FindBy(id = "password")
-    WebElement inputPasword;
+    WebElement inputPassword;
 
-    @FindBy(xpath = ".//button[@type='submit']")
+    @FindBy(name="_username")
+    WebElement inputUsername;
+
+    @FindBy(xpath = ".//button[@type = 'submit']")
     WebElement buttonSubmit;
 
     @FindBy(xpath = ".//img[contains(@alt,'student')]")
     WebElement avatar;
 
-    public LoginPage (WebDriver driver){
+    //constructor
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
         log = Logger.getLogger(getClass());
-        PageFactory.initElements(driver,this);
+        //initialization of objects in @FindBy
+        PageFactory.initElements(driver, this);
     }
 
-    public void openBrowserAndLoginPage(){
+    //methods
+    public void openBrowserAndLoginPage() {
         try {
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
             driver.get("http://v3.test.itpmgroup.com/login");
             log.info("Browser and Login page was opened");
-        }catch (Exception e){
-            log.error("Can not work with browser or LoginPage" + e);
-//            Assert.fail("Can not work with browser or LoginPage")
+        } catch (Exception e) {
+            log.error("can not work with browser or LoginPage");
+            Assert.fail();
         }
     }
 
-    public void closeLoginPageAndBroser(){
+    public void closeLoginPageAndBrowser() {
         driver.quit();
-        log.info("Browser and PageLogin were closed");
+        log.info("Browser and page Login were closed");
     }
 
-    public boolean isLoginPageLoad(){
+    public boolean isLoginPageLoad() {
         try {
-            boolean isElementPresent = inputPasword.isDisplayed();
-
-            return isElementPresent;
-        }catch (NoSuchElementException e){
+            return inputPassword.isDisplayed();
+        } catch (NoSuchElementException e) {
             log.info("No such element");
             return false;
         }
     }
-
-    public LoginPage inputTextInToLoginField(String text){
-        inputLogin.clear();
-        inputLogin.sendKeys(text);
-        log.info(text + " was inputed");
+    public LoginPage inputTextInLoginField(String text){
+        inputUsername.clear();
+        inputUsername.sendKeys(text);
+        log.info(text + " was input");
+        //will return new object (smth can be appear) - will refresh page!!!
         return new LoginPage(driver);
     }
-
-
-    public LoginPage inputTextInToPassField(String pass){
-        inputPasword.clear();
-        inputPasword.sendKeys(pass.toString());
-        log.info(pass + " was inputed");
+    public LoginPage inputTextinPasswordField(String text){
+        inputPassword.clear();
+        inputPassword.sendKeys(text);
+        log.info(text + " was input");
         return new LoginPage(driver);
     }
-
     public void clickButtonVhod(){
         buttonSubmit.click();
         log.info("Button VHOD was clicked");
     }
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

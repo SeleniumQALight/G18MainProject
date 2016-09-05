@@ -9,10 +9,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-/**
- * Created by QALight on 22.08.2016.
- */
-public class TestLogiPageValideWithPageObject {
+
+public class TestingPageValidWithPageObject {
     WebDriver driver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(driver);
     HomePage homePage = new HomePage(driver);
@@ -23,18 +21,18 @@ public class TestLogiPageValideWithPageObject {
     }
 
     @Test
-    public void testLogiPageValideWithPageObject(){
+    public void testingPageValidWithPageObject() {
         loginPage.openBrowserAndLoginPage();
-        Assert.assertTrue("LoginPage was not loaded",loginPage.isLoginPageLoad());
-//        loginPage.inputTextInToLoginField("student").inputTextInToPassField("909090").clickButtonVhod();
+        Assert.assertTrue("LoginPage was not loaded", loginPage.isLoginPageLoad());
 
-        Assert.assertTrue("Home page was not loaded", homePage.isHomePageLoaded());
+        loginPage.inputTextInToLoginField("student").inputTextInToPassField("909090").clickButtonVhod();
 
-
+        Assert.assertTrue("HomePage was not loaded", homePage.isHomePageLoaded());
     }
 
     @After
-    public void tearDown(){
-//        homePage.closeHomePageAndBrowser();
+    public  void tearDown(){
+        homePage.closeHomePageAndBrowser();
     }
+
 }

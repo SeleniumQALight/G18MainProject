@@ -75,14 +75,6 @@ public class LoginPage {
         buttonSubmit.click();
         log.info("Button VHOD was clicked");
     }
-    public  boolean isAccountPageLoaded(){
-        try{
-            boolean isAvatarDisplayed = avatar.isDisplayed();
-            return isAvatarDisplayed;
-        }catch(NoSuchElementException e){
-            log.info("No such element!!!");
-            return false;
-        }
-    }
+
 }
 
