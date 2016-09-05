@@ -46,4 +46,12 @@ public class Apparat {
             return false;
         }
     }
+    public boolean isAppartPresentNumber(String numberFromTest) {
+        try{
+            return driver.findElement(By.xpath(".//*[text()='" + numberFromTest + "']")).isDisplayed();
+        }catch (Exception e){
+            log.info(numberFromTest + " wasn't found");
+            return false;
+        }
+    }
 }
