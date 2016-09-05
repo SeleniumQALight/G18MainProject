@@ -26,62 +26,62 @@ public class LoginPage {
     @FindBy(xpath = ".//button[@type='submit']")
     WebElement buttonSubmit;
 
-    @FindBy(xpath = ".//img[contains(@alt,'student')]")
-    WebElement avatar;
+    //   @FindBy(xpath = ".//img[contains(@alt,'student')]")
+    //   WebElement avatar;
 
-
-    public LoginPage (WebDriver driver) {
+    //construktor
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
-        log =  Logger.getLogger(getClass());
-        PageFactory.initElements(driver,this);
+        log = Logger.getLogger(getClass());
+        PageFactory.initElements(driver, this);
     }
 
-    public void openBrowserAndLoginPage(){
+    public void openBrowserAndLoginPage() {
         try {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             driver.get("http://v3.test.itpmgroup.com/login");
             log.info("Browser and Login page were opened");
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("Can not work with browser or LoginPage" + e);
 //            Assert.fail("Can not work with browser or LoginPage")
         }
     }
 
-    public void closeLoginPageAndBrowser (){
+    public void closeLoginPageAndBrowser() {
         driver.quit();
         log.info("Browser and PageLogin were closed");
     }
 
-    public boolean isLoginPageLoad (){
+    public boolean isLoginPageLoad() {
         try {
-            boolean isElementPresent =  inputPassword.isDisplayed();
+            boolean isElementPresent = inputPassword.isDisplayed();
 
             return isElementPresent;
-        }catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             log.info("No such element");
             return false;
 
         }
     }
 
-    public LoginPage inputTextIntoLoginField(String text){
+    public LoginPage inputTextIntoLoginField(String text) {
         inputLogin.clear();
         inputLogin.sendKeys(text);
-        log.info(text + " was inputed");
+        log.info("'" + text + "' was inputed");
         return new LoginPage(driver);
 
     }
 
-    public LoginPage inputTextIntoPassField(String pass){
+    public LoginPage inputTextIntoPassField(String pass) {
         inputPassword.clear();
         inputPassword.sendKeys(pass);
-        log.info(pass + "was inputed");
+        log.info("'" + pass + "' was inputed");
         return new LoginPage(driver);
     }
 
 
-    public void clickButtonVhod(){
+    public void clickButtonVhod() {
         buttonSubmit.click();
         log.info("Button VHOD was clicked");
     }
