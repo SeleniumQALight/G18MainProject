@@ -1,5 +1,6 @@
 package mainPack;
 
+import mainPack.Pages.HomePage;
 import mainPack.Pages.LoginPage;
 import org.junit.After;
 import org.junit.Assert;
@@ -14,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class TestLogiPageValideWithPageObject {
     WebDriver driver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(driver);
+    HomePage homePage = new HomePage(driver);
 
     @Before
     public void setUp(){
@@ -24,12 +26,15 @@ public class TestLogiPageValideWithPageObject {
     public void testLogiPageValideWithPageObject(){
         loginPage.openBrowserAndLoginPage();
         Assert.assertTrue("LoginPage was not loaded",loginPage.isLoginPageLoad());
+//        loginPage.inputTextInToLoginField("student").inputTextInToPassField("909090").clickButtonVhod();
+
+        Assert.assertTrue("Home page was not loaded", homePage.isHomePageLoaded());
 
 
     }
 
     @After
     public void tearDown(){
-        loginPage.closeLoginPageAndBroser();
+//        homePage.closeHomePageAndBrowser();
     }
 }

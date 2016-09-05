@@ -25,7 +25,7 @@ public class TestLogiPageNotValideWithPageObject {
         loginPage.openBrowserAndLoginPage();
         Assert.assertTrue("LoginPage was not loaded",loginPage.isLoginPageLoad());
 
-        loginPage.inputTextInToLoginField("student").inputTextInToPassField("909091").clickButtonVhod();
+//        loginPage.inputTextInToLoginField("student").inputTextInToPassField("909091").clickButtonVhod();
 
         Assert.assertTrue("LoginPage was not loaded",loginPage.isLoginPageLoad());
 
@@ -33,6 +33,6 @@ public class TestLogiPageNotValideWithPageObject {
 
     @After
     public void tearDown(){
-        loginPage.closeLoginPageAndBroser();
+//        loginPage.closeLoginPageAndBroser();
     }
 }
