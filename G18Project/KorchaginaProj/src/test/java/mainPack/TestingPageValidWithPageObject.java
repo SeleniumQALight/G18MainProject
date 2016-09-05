@@ -9,30 +9,30 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TestLoginPageValidWithPageObject {
+
+public class TestingPageValidWithPageObject {
     WebDriver driver = new ChromeDriver();
     LoginPage loginPage = new LoginPage(driver);
     HomePage homePage = new HomePage(driver);
 
     @Before
-    public void setUp() {
-        //Tut mojno sapisat Pre Condition
+    public void setUp(){
+
     }
 
     @Test
-    //Steps
-    public void testLoginPageValidWithPageObject() {
-        loginPage.OpenBrowserAndLoginPage();
+    public void testingPageValidWithPageObject() {
+        loginPage.openBrowserAndLoginPage();
         Assert.assertTrue("LoginPage was not loaded", loginPage.isLoginPageLoad());
-        loginPage.inputTextIntoLoginField("student").inputTextIntoPassField("909090").clickButtonVdod();
-        Assert.assertTrue("Home page was not loaded",homePage.isHomePageLoaded());
 
+        loginPage.inputTextInToLoginField("student").inputTextInToPassField("909090").clickButtonVhod();
 
+        Assert.assertTrue("HomePage was not loaded", homePage.isHomePageLoaded());
     }
 
     @After
-    //Post-Conditions
-    public void tearDown() {
-        homePage.CloseHomePageAndBrowser();
+    public  void tearDown(){
+        homePage.closeHomePageAndBrowser();
     }
+
 }
