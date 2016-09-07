@@ -20,6 +20,8 @@ public class HomePage {
     WebElement dictionary;
     @FindBy(xpath = ".//*[@id='apparat']/a")
     WebElement subMenuApparat;
+    @FindBy(xpath = ".//*[@href='/dictionary/spares]'//a" )
+    WebElement subMenuZap4asti;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -58,4 +60,13 @@ public class HomePage {
         }
     }
 
+    public  void clickSubMenuZap4asti(){
+        try{
+            subMenuZap4asti.click();
+            log.info("SubMenuZap4asti was clicked");
+        }catch (Exception e){
+            log.error("can't work with SubMenuZap4asti");
+            Assert.fail("can't work with SubMenuZap4asti");
+        }
+    }
 }
