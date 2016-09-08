@@ -1,25 +1,48 @@
 package mainPack;
 
-import mainPack.Pages.Apparat;
-import mainPack.Pages.ApparatEdit;
-import mainPack.Pages.HomePage;
-import mainPack.Pages.LoginPage;
+import mainPack.Pages.Application;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * Created by Iris on 22.08.2016.
  */
+///add parameters
+@RunWith(value = Parameterized.class)
 public class AddNewApparat {
     WebDriver driver = new ChromeDriver();
-    LoginPage loginPage = new LoginPage(driver);
-    HomePage homePage = new HomePage(driver);
-    Apparat apparat = new Apparat(driver);
-    ApparatEdit apparatEdit = new ApparatEdit(driver);
+    Application app =  new Application(driver);
+
+
+
+    /// local variable
+    String apparatNumber;
+    String commentApparat;
+
+///add  constructor with parametres
+    public AddNewApparat (String apparatNumber, String commentApparat){
+        this.apparatNumber = apparatNumber;
+        this.commentApparat = commentApparat;
+    }
+    @Parameterized.Parameters
+    public static Collection testData() {
+        return Arrays.asList(new Object[][]{
+                {"VeryLong NameVeryLong NameVeryLong Name IM","VeryLong NameVeryLong NameVeryLong Name IM"},
+                {"!@#$%^&*()_IM","!@#$%^&*()_IM",}//,
+                //{"","IM"},
+                //{"IM",""}
+        });
+    }
+
 
     @Before
     public void setUp() {
@@ -29,25 +52,27 @@ public class AddNewApparat {
 
     @Test
     public void addNewApparat() {
-        loginPage.openBrowserAndLoginPage();
-        Assert.assertTrue("LoginPage wasn't loaded", loginPage.isLoginPageLoad());
-        loginPage.inputTextInLoginField("student").inputTextinPasswordField("909090").clickButtonVhod();
-        Assert.assertTrue("Home page was not loaded", homePage.isHomePageLoaded());
+        app.loginPage.openBrowserAndLoginPage();
+        Assert.assertTrue("LoginPage wasn't loaded", app.loginPage.isLoginPageLoad());
+        app.loginPage.inputTextInLoginField("student").inputTextinPasswordField("909090").clickButtonVhod();
+        Assert.assertTrue("Home page was not loaded", app.homePage.isHomePageLoaded());
 
-        homePage.clickDictionaryMenu();
-        homePage.clickSubMenuApparat();
-        apparat.clickAddButton();
+        app.homePage.clickDictionaryMenu();
+        app.homePage.clickSubMenuApparat();
+        app.apparat.clickAddButton();
 
-        apparatEdit.inputApparatNumber("444");
-        apparatEdit.inputApparatComment("AutotestApparat_Marchenko");
-        apparatEdit.clickButtonCreate();
-        Assert.assertTrue("Apparat was not added",apparat.isAppartPresentComment("AutotestApparat_Marchenko"));
+        app.apparatEdit.inputApparatNumber(apparatNumber);
+        app.apparatEdit.inputApparatComment(commentApparat);
+        app.apparatEdit.clickButtonCreate();
+        Assert.assertTrue("Apparat was not added",app.apparat.isAppartPresentComment(commentApparat));
+        Assert.assertTrue("Apparat was not added",app.apparat.isAppartPresentNumber(apparatNumber));
     }
 
     @After
     //Post-Conditions
     public void tearDown() {
 
-        homePage.CloseHomePageAndBrowser();
+        app.homePage.CloseHomePageAndBrowser();
     }
 }
+///assertThat(6) isEql (6) - testfail
