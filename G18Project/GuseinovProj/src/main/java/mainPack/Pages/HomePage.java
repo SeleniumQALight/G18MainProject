@@ -6,6 +6,8 @@ import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -19,6 +21,8 @@ public class HomePage {
     WebElement dictionary;
     @FindBy(xpath = ".//*[@id='apparat']/a")
     WebElement submenuDictionaryAparat;
+    @FindBy(xpath = ".//*[@href='/dictionary/spares']")
+    WebElement spares;
 
 
     public HomePage(WebDriver driver) {
@@ -56,6 +60,17 @@ public class HomePage {
                 Assert.fail("Can`t work with Menu dictionary");
             }
 
+    }
+
+    public void clickSubmenuZap4asti(){
+        try{
+
+            spares.click();
+            log.info("sparse was clicked");
+        }catch(Exception e){
+            log.info("Cannot work with spares");
+            Assert.fail("Cannot work with spares");
+        }
     }
     }
 
