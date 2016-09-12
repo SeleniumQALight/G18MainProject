@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
+import static libs.ConfigData.getCfgValue;
+
 /**
  * Created by Iris on 22.08.2016.
  */
@@ -43,7 +45,7 @@ public class LoginPage {
         try {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
-            driver.get("http://v3.test.itpmgroup.com/login");
+            driver.get(getCfgValue("SITE_URL") + "login");
             log.info("Browser and Login page was opened");
         } catch (Exception e) {
             log.error("can not work with browser or LoginPage");
