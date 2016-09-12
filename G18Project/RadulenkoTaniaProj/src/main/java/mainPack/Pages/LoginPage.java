@@ -9,13 +9,17 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import java.util.concurrent.TimeUnit;
 
+import static libs.ConfigData.getCfgValue;
+
 public class LoginPage {
     WebDriver driver;
     Logger log;
+    WebDriverWait webDriverWait;
 
     @FindBy(name = "_username")
     WebElement inputLogin;
@@ -34,13 +38,16 @@ public class LoginPage {
         this.driver = driver;
         log = Logger.getLogger(getClass());
         PageFactory.initElements(driver, this);
+        webDriverWait = new WebDriverWait(driver, 30);
     }
 
     public void openBrowserAndLoginPage() {
         try {
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-            driver.get("http://v3.test.itpmgroup.com/login");
+            driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+            driver.get(getCfgValue("SITE_URL") + "login");
+            //dobavit dlya kagdoj stranici, gde ispolzuem url
+
             log.info("Browser and Login page were opened");
         } catch (Exception e) {
             log.error("Can not work with browser or LoginPage" + e);
