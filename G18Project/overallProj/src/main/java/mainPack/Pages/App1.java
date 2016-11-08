@@ -12,6 +12,8 @@ public class App1 {
     public ApparatEdit apparatEdit;
     public HomePage homePage;
     public LoginPage loginPage;
+    public Zap4asti zap4asti;
+    public Zap4astiEdit zap4astiEdit;
 
     public App1(WebDriver driver) {
         this.driver = driver;
@@ -19,6 +21,8 @@ public class App1 {
         apparatEdit = new ApparatEdit(driver);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
+        zap4asti = new Zap4asti(driver);
+        zap4astiEdit = new Zap4astiEdit(driver);
 
     }
 

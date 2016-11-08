@@ -9,6 +9,8 @@ public class App1 {
     public ApparatEditPage apparatEditPage;
     public DealPage dealPage;
     public LoginPage loginPage;
+    public Zapchasti zapchasti;
+    public ZapchastiEditPage zapchastiEditPage;
 
     public App1(WebDriver driver) {
         this.driver = driver;
@@ -16,6 +18,8 @@ public class App1 {
         apparatEditPage = new ApparatEditPage(driver);
         dealPage = new DealPage(driver);
         loginPage = new LoginPage(driver);
+        zapchasti = new Zapchasti(driver);
+        zapchastiEditPage = new ZapchastiEditPage(driver);
     }
 
 }

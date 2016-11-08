@@ -6,10 +6,14 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses(
         {
-                TestLoginPageValidWithPageObject.class,
-                TestLoginPageNotValidWithPageObject.class
-
+                TestLogiPageValideWithPageObject.class,
+                TestLogiPageNotValideWithPageObject.class
         }
 )
 public class SuitLoginPageTesting {
+
 }
+
+
+
+
